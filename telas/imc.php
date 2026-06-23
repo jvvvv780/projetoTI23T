@@ -17,25 +17,30 @@
             <h1>IMC<h1>
                 <br>
                 <div class="mb-3">
-                    <label for="lpeso" class="form-label">Informe o peso</label>
+                    <label for="lpeso" class="form-label">Informe seu peso</label>
                     <input type="text" class="form-control" id="peso" name="peso">
                 </div>
                 <div class="mb-3">
-                    <label for="laltura" class="form-label">Informe a altura</label>
+                    <label for="laltura" class="form-label">Informe sua altura</label>
                     <input type="text" class="form-control" id="altura" name="altura">
                 </div>
                 <br>
             <button type="submit" class="btn btn-primary">Calcular
                 <?php
-                    $peso = $_POST['peso'];
-                    $altura = $_POST['altura'];
-                    //chamando a variavel que representa a classe funcao
-                    $resultado = $funcao->imc($peso, $altura);
+                    if(isset($_POST['peso']) || isset($_POST['altura'])){
+
+                        $peso = $_POST['peso'];
+                        $altura = $_POST['altura'];
+                        //chamando a variavel que representa a classe funcao
+                        $resultado = $funcao->calcularImc($peso, $altura);
+                    }
                 ?>
             </button>
             <h2>
                 <?php
-                    echo $funcao->imc($peso, $altura);
+                    if(isset($_POST['peso']) || isset($_POST['altura'])){
+                        echo $funcao->calcularImc($peso, $altura);
+                    }
                 ?>
             <h2>
         <form>

@@ -10,35 +10,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Retângulo</title>
+    <title>Idade convertida em dias</title>
 </head>
 <body>
         <form method="POST" style="text-align:center;margin:3%; padding:5%">
-            <h1>Área do Retângulo<h1>
+            <h1>Idade convertidade em dias<h1>
                 <br>
                 <div class="mb-3">
-                    <label for="lbase" class="form-label">Informe a base do retângulo</label>
-                    <input type="text" class="form-control" id="base" name="base">
-                </div>
-                <div class="mb-3">
-                    <label for="lbase" class="form-label">Informe a altura do retângulo</label>
-                    <input type="text" class="form-control" id="base" name="altura">
+                    <label for="lbase" class="form-label">Informe a idade</label>
+                    <input type="text" class="form-control" id="dias" name="dias">
                 </div>
                 <br>
             <button type="submit" class="btn btn-primary">Calcular
                 <?php
-                   if(isset($_POST['base']) || isset($_POST['altura'])){
-                    $base = $_POST['base'];
-                    $altura = $_POST['altura'];
+                   if(isset($_POST['dias'])){
+                    $dias = $_POST['dias'];
                     //Chamo a variável que representa a classe Funcao
-                    $funcao->retangulo($base, $altura);
+                    $funcao->idadeemdias($dias);
                 }
                 ?>
             </button>
             <h2>
                 <?php
-                   if(isset($_POST['base']) || isset($_POST['altura'])){
-                    echo $funcao->retangulo($base, $altura);
+                   if(isset($_POST['dias'])){
+                    echo $funcao->idadeemdias($dias);
                 }else{
                     echo "Preencha os campos!";
                 }

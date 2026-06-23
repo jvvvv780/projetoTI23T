@@ -10,18 +10,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Retângulo</title>
+    <title>Área do Triângulo</title>
 </head>
 <body>
         <form method="POST" style="text-align:center;margin:3%; padding:5%">
             <h1>Área do Retângulo<h1>
                 <br>
                 <div class="mb-3">
-                    <label for="lbase" class="form-label">Informe a base do retângulo</label>
+                    <label for="lbase" class="form-label">Informe a base do triângulo</label>
                     <input type="text" class="form-control" id="base" name="base">
                 </div>
                 <div class="mb-3">
-                    <label for="lbase" class="form-label">Informe a altura do retângulo</label>
+                    <label for="lbase" class="form-label">Informe a altura do triângulo</label>
                     <input type="text" class="form-control" id="base" name="altura">
                 </div>
                 <br>
@@ -31,14 +31,14 @@
                     $base = $_POST['base'];
                     $altura = $_POST['altura'];
                     //Chamo a variável que representa a classe Funcao
-                    $funcao->retangulo($base, $altura);
+                    $funcao->triangulo($base, $altura);
                 }
                 ?>
             </button>
             <h2>
                 <?php
                    if(isset($_POST['base']) || isset($_POST['altura'])){
-                    echo $funcao->retangulo($base, $altura);
+                    echo $funcao->triangulo($base, $altura);
                 }else{
                     echo "Preencha os campos!";
                 }

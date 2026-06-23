@@ -1,51 +1,57 @@
 <?php
     namespace Projeto\ti23t\telas;
     include('cabecalho.php');
-    require_once('../php/funcoes.php'); //acessando o arquivo
-    use Projeto\ti23t\php\Funcao; //acessando a classe que esta no arquivo funcoes.php
-    $funcao = new Funcao(); //Construtor da classe funcao ->conectando a index e funcoes
+    require_once('../php/funcoes.php'); //Acessando o arquivo
+    use Projeto\ti23t\php\Funcao; //Acessando a classe que está no arquivo funcoes.php
+    $funcao = new Funcao();//Construtor da classe funcao ->Conectando a INDEX E FUNCOES
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhaskara</title>
+    <title>Multiplicar</title>
 </head>
-<body>
-        <form method="POST" style="text-align:center;margin:3%; padding:5%">
-            <h1>Bhaskara<h1>
-                <br>
-                <div class="mb-3">
-                    <label for="lx1" class="form-label">Informe o primeiro numero</label>
-                    <input type="number" class="form-control" id="x1" name="x1">
-                </div>
-                <div class="mb-3">
-                    <label for="lx2" class="form-label">Informe o segundo numero</label>
-                    <input type="number" class="form-control" id="x2" name="x2">
-                </div>
-                <div class="mb-3">
-                    <label for="lx3" class="form-label">Informe o terceiro numero</label>
-                    <input type="number" class="form-control" id="x3" name="x3">
-                </div>
-                <br>
-            <button type="submit" class="btn btn-primary">Calcular
-                <?php
+<body style="background-color:#ff00aa;">
+    <form method="POST" style="text-align:center;margin:10%;background-color:#8affb0;padding:5%;">
+        <H1>Equação de 2º Grau</H1>
+
+        <div class="mb-3">
+            <label for="lPrimeiroNumero" class="form-label">Informe o valor de A: </label>
+            <input type="number" class="form-control" id="valorA" name="valorA">
+        </div>
+
+        <div class="mb-3">
+            <label for="lSegundoNumero" class="form-label">Informe o valor de B: </label>
+            <input type="number" class="form-control" id="valorB" name="valorB">
+        </div>
+
+        <div class="mb-3">
+            <label for="lSegundoNumero" class="form-label">Informe o valor de C: </label>
+            <input type="number" class="form-control" id="valorC" name="valorC">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Calcular
+             <?php 
                 if(isset($_POST['valorA']) || isset($_POST['valorB']) || isset($_POST['valorC'])){
                     $a = $_POST['valorA'];
                     $b = $_POST['valorB'];
                     $c = $_POST['valorC'];
-                    //chamando a variavel que representa a classe funcao
+                    //Chamo a variável que representa a classe Funcao
                     $resultado = $funcao->bhaskara($a, $b, $c);
-
                 }
-                ?>
-            </button>
-            <h2>
-                <?php
-                    echo $funcao->bhaskara();
-                ?>
-            <h2>
-        <form>
+            ?>
+        </button>
+
+        <h2>
+            <?php 
+                 if(isset($_POST['valorA']) || isset($_POST['valorB']) || isset($_POST['valorC'])){
+                    echo $resultado;
+                }else{
+                    echo "Preencha os campos!";
+                }
+            ?>  
+        </h2>  
+    </form>
 </body>
 </html>
